@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="MapSynq Regression Test Suite" parallel="tests" thread-count="1">  
+ <test name="MapSynq - Account SignUp" >
+    <classes>
+      <class name="com.mapsynq.automation.register.test.MapSynqSignUp"/>
+    </classes>
+ </test>
+
+ <test name="MapSynq - Global Search Test" >
+    <classes>
+      <class name="com.mapsynq.automation.homepage.test.GlobalSearchTest"/>
+    </classes>
+ </test>
+
+ <test name="MapSynq - Directions Test" >
+    <classes>
+      <class name="com.mapsynq.automation.lefttabbase.test.DirectionsTest"/>
+    </classes>
+ </test>
+ 
+ <test name="MapSynq - Live Cameras Test" >
+    <classes>
+      <class name="com.mapsynq.automation.lefttabbase.test.LiveCamerasTest"/>
+    </classes>
+ </test>
+ 
+ <test name="MapSynq - Live Incidents Test" >
+    <classes>
+      <class name="com.mapsynq.automation.lefttabbase.test.LiveIncidentsTest"/>
+    </classes>
+ </test>
+ 
+ <test name="MapSynq - Live Tolls Test" >
+    <classes>
+      <class name="com.mapsynq.automation.lefttabbase.test.LiveTollsTest"/>
+    </classes>
+ </test>
+ 
+ <test name="MapSynq - Traffic Cameras from Control Panel" >
+    <classes>
+      <class name="com.mapsynq.automation.controlpanel.test.CamerasTest"/>
+    </classes>
+ </test>
+ 
+ <test name="MapSynq - Incidents from Control Panel" >
+    <classes>
+      <class name="com.mapsynq.automation.controlpanel.test.IncidentsTest"/>
+    </classes>
+ </test>
+ 
+ <test name="MapSynq - Parking from Control Panel" >
+    <classes>
+      <class name="com.mapsynq.automation.controlpanel.test.ParkingTest"/>
+    </classes>
+ </test>
+ 
+ <test name="MapSynq - Toll from Control Panel" >
+    <classes>
+      <class name="com.mapsynq.automation.controlpanel.test.TollTest"/>
+    </classes>
+ </test>
+</suite>
