@@ -25,6 +25,6 @@ public class GlobalSearchTest extends TestBase {
 
 	@Test
 	public void verifyGloabalSearchResult() throws Exception {
-		assertTrue("Problem in Search Result(s)", homePage.setTextGlobalSearchOption(getGlobalSearchTestInput()).verifySearchResult());
+		assertTrue("Problem in Search Result(s)", homePage.setTextGlobalSearchOption(getGlobalSearchTestInput()).clickSearchIcon().verifySearchResult());
 	}
 }

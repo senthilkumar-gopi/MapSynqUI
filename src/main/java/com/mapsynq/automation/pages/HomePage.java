@@ -28,6 +28,9 @@ public class HomePage extends UtilClass{
 	@FindBy(id = "txtGlobalSearch")
     private WebElement txtGlobalSearchBox;
 
+	@FindBy(xpath = "//span[contains(@class,'search')]")
+    private WebElement btnSearch;
+
 	@FindBy(xpath = "//div[contains(@class,'ad_bar_collapse')]")
     private WebElement btnAdvToggleCollapse;
 	
@@ -163,6 +166,13 @@ public class HomePage extends UtilClass{
 	public HomePage setTextGlobalSearchOption(String searchInputText) {
 		setText(driver, txtGlobalSearchBox, searchInputText);
 		log.info("Entered First Name : " + searchInputText);
+
+		return this;		
+	}
+	
+	public HomePage clickSearchIcon() {
+		clickElement(driver, btnSearch);
+		log.info("Clicked Search Icon");
 
 		return this;		
 	}
