@@ -25,7 +25,7 @@ src/main/java - Individual pages are classified in to their corresponding packag
 
 src/main/resources - contains application config properties,driver folder containing different driver files based on OS and log4j.xml file
 
-src/test/java - TestNG test file
+src/test/java - TestNG test class files
 
 src/test/resources - contains TestNG.xml file in SuiteFiles and testdata inside testdataconfig properties file
 
@@ -48,5 +48,5 @@ For running test:
 
 Reports - testng reports - {rootfolder}\target\surefire-reports\index.html, {rootfolder}\target\surefire-reports\emailable-report.html
 	      ReportNG reports -  {rootfolder}\target\surefire-reports\html\index.html
-Screenshots - {rootfolder}\Screenshots\passed & {rootfolder}\Screenshots\failed
+Screenshots - {rootfolder}\target\surefire-reports\Screenshots\passed & {rootfolder}\target\surefire-reports\Screenshots\failed
 Logger - {rootfolder}/target/Log.log
