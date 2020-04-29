@@ -41,10 +41,12 @@ public class BrowserManager extends TestBase {
 		  String cloudusername = defaultProps.getProperty("cloudusername");
 		  String cloudaccesskey = defaultProps.getProperty("cloudaccesskey");
 		  String version = defaultProps.getProperty("version");
+		  String headless = defaultProps.getProperty("headless");
 		  
 		  log.info("Current Execution platform is : " + mode);
 		  log.info("Current OS is : " + os);
 		  log.info("Current Browser is : " + browser);
+		  log.info("Headless mode : " + headless);
 
 		  if (mode.equalsIgnoreCase("local")) {
 			  if(browser.equalsIgnoreCase("chrome"))
@@ -55,6 +57,10 @@ public class BrowserManager extends TestBase {
 				  options.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
 				  options.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
 				  options.addArguments("disable-infobars");
+				  if(headless.equalsIgnoreCase("yes")) {
+				      options.addArguments("--headless","--disable-gpu","--test-type","--ignore-certificate-errors");
+				      options.addArguments("window-size=1200,1100"); 
+				  }
 				  if(os.toLowerCase().trim().contains(linux))
 				  {
 					  options.addArguments("--disable-extensions");

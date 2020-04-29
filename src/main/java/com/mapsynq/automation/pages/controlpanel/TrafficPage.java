@@ -59,6 +59,7 @@ public class TrafficPage extends UtilClass{
 	protected void clickZoomInParkingLotLogo() {
 		try {
 		    log.info("Verify Zoom In Link");
+		    waitForSeconds(2);
 		    clickElement(driver, lnkZoomIn);
 		    log.info("Clicked Zoom In Link");
 		    waitForSeconds(5);
