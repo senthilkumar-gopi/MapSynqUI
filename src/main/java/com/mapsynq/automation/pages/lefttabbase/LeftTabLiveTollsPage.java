@@ -47,7 +47,7 @@ public class LeftTabLiveTollsPage extends UtilClass{
 	}
 
 	public boolean verifyTollPopUp() {
-		String getTextFromFirstTollLinkLocation = lnkFirstTollLocationName.getText().toUpperCase();;
+		String getTextFromFirstTollLinkLocation = lnkFirstTollLocationName.getText().toUpperCase();
 		boolean popupTitleHeader = headerPopUpTitle.getText().contains("ERP");
 		driver.switchTo().frame(frameLoc);
 		String getTextInsidePopUp = lblTextInfo.getText().toUpperCase();

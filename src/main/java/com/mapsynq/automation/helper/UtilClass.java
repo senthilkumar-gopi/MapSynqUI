@@ -50,12 +50,12 @@ public class UtilClass {
 		return element.getText();
 	}
 
-	public void selectByValue(WebDriver driver, WebElement element, String value)
+	public void selectByValue(WebElement element, String value)
 	{
 		new Select(element).selectByVisibleText(value);
 	}
 
-	public void selectByIndex(WebDriver driver, WebElement element, int value)
+	public void selectByIndex(WebElement element, int value)
 	{
 		new Select(element).selectByIndex(value);
 	}
@@ -74,7 +74,7 @@ public class UtilClass {
 		try
 		{
 			log.info("Sleeping for "+sec+" seconds");
-			Thread.sleep(sec * 1000);
+			Thread.sleep(sec * 1000L);
 		}
 		catch(Exception e)
 		{
@@ -83,11 +83,11 @@ public class UtilClass {
 	}
 	
 	public void waitForElementToAppear(WebDriver driver, WebElement ele) {
-		WebDriverWait wait = new WebDriverWait(driver, 60);
+		wait = new WebDriverWait(driver, 60);
 		wait.until(ExpectedConditions.visibilityOf(ele));
 	}
 	
-	public boolean isElementPresent(WebDriver driver, WebElement ele) {
+	public boolean isElementPresent(WebElement ele) {
 		try {
 			return ele.isDisplayed();
 		} catch(Exception e) {

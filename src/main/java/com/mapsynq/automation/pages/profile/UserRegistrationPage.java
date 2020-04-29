@@ -72,7 +72,7 @@ public class UserRegistrationPage extends UtilClass{
 	}
 
 	public UserRegistrationPage selectCountry(String country) {
-		selectByValue(driver, ddlCountry, country);
+		selectByValue(ddlCountry, country);
 		log.info("Selected Country Name : " + country);
 
 		return this;
@@ -102,14 +102,14 @@ public class UserRegistrationPage extends UtilClass{
 	
 	public UserRegistrationPage setPassword(String password) {
 		setText(driver, txtPassword, password);
-		log.info("Entered DOB : " + password);
+		log.info("Entered Password : " + password);
 
 		return this;
 	}
 	
 	public UserRegistrationPage setConfirmPassword(String password) {
 		setText(driver, txtConfirmPassword, password);
-		log.info("Entered DOB : " + password);
+		log.info("Entered Confirm Password : " + password);
 
 		return this;
 	}

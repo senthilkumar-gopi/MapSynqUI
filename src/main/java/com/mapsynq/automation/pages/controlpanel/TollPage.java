@@ -43,7 +43,7 @@ public class TollPage extends UtilClass{
 		wait.until(ExpectedConditions.visibilityOf(tollLogo));
 	}
 
-	public TollPage clickFirstTollLogo() throws InterruptedException {
+	public TollPage clickFirstTollLogo() {
 		clickElement(driver, mapZoomBtn);
 		log.info("Clicked Zoom In map");
 		log.info("Clicking First Occurrence of Toll Logo Symbol");
@@ -54,7 +54,7 @@ public class TollPage extends UtilClass{
 	}
 
 	public boolean verifyTollPopUp() {
-		if(isElementPresent(driver, lnkZoomIn))
+		if(isElementPresent(lnkZoomIn))
 			clickZoomInTollLogo();
 		boolean popupTitleHeader = headerPopUpTitle.getText().contains("Toll");
 		driver.switchTo().frame(frameLoc);

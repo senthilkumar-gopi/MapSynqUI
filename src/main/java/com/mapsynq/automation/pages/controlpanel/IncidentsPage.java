@@ -37,7 +37,7 @@ public class IncidentsPage extends UtilClass{
 		wait.until(ExpectedConditions.visibilityOf(incidentsLogo));
 	}
 
-	public IncidentsPage clickFirstIncidentLogo() throws InterruptedException {
+	public IncidentsPage clickFirstIncidentLogo() {
 		log.info("Clicking First Incident Logo Symbol");
 		clickElement(driver, incidentsLogo);
 		log.info("Clicked First Incident Logo Symbol");

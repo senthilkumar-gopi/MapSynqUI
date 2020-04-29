@@ -92,7 +92,7 @@ public class LeftTabDirectionsPage extends UtilClass{
 		return this;
 	}
 
-	public boolean verifySearchResult() throws InterruptedException {
+	public boolean verifySearchResult() {
 		waitForSeconds(5);
 
         Alert alert = driver.switchTo().alert();

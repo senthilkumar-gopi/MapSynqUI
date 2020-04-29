@@ -1,9 +1,6 @@
 package com.mapsynq.automation.helper;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.net.MalformedURLException;
 import java.util.Properties;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -19,55 +16,51 @@ import org.uncommons.reportng.*;
 	public class TestBase
 	{
 	    private static Logger log = Logger.getLogger(TestBase.class);
-	    public WebDriver driver;
-	    private static final String ESCAPE_PROPERTY = "org.uncommons.reportng.escape-output";
-  
+		public WebDriver driver;
+		private static final String ESCAPE_PROPERTY = "org.uncommons.reportng.escape-output";
 	    Properties defaultProps = new Properties();
 
 	  @BeforeTest
-	  public void createDriver() throws Exception {
+	  public void createDriver() {
 		  setEnvProperties();
 		  System.setProperty(ESCAPE_PROPERTY, "false");
 		  BrowserManager browser=new BrowserManager();
-		  driver=browser.getDriver();
+		  driver=browser.getWebDriver();
 		  String url = defaultProps.getProperty("url");
 		  log.info("Opening the Url - "+ url);
+		  
 		  driver.get(url);
 		  driver.navigate().refresh();
 	  }
 
 	 protected void setEnvProperties()  {
-			String workingDir = System.getProperty("user.dir");
-			String defaultConfigPath = workingDir + "/src/main/resources/configfile/config.properties";
-			log.info("defaultConfigPath"+defaultConfigPath);
-			try {
-				defaultProps.load(new FileInputStream(defaultConfigPath));
-			} catch (FileNotFoundException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+		  String workingDir = System.getProperty("user.dir");
+		  String defaultConfigPath = workingDir + "/src/main/resources/configfile/config.properties";
+		  log.info("defaultConfigPath"+defaultConfigPath);
+		  try {
+			  defaultProps.load(new FileInputStream(defaultConfigPath));
+		  } catch (Exception e) {
+			  log.info(e.toString());
+		  }
 	 }
  
 	 protected Properties getDefaultConfig() {	  
 		  return defaultProps;
 	 }
 
-	 public WebDriver getDriver() throws MalformedURLException, Exception {
+	 public WebDriver getDriver() {
 		  return driver;
 	 }
 	 
 	 protected Properties getProperties()  {
-		 Properties defaultProps = new Properties();
+		 defaultProps = new Properties();
 		 String workingDir = System.getProperty("user.dir");
 		 String defaultConfigPath = workingDir + "/src/test/resources/configfile/testdataconfig.properties";
 		 log.info("Testdata ConfigPath"+defaultConfigPath);
 		 try {
 		 	defaultProps.load(new FileInputStream(defaultConfigPath));
-		 } catch (FileNotFoundException e) {
-		 	e.printStackTrace();
-		 } catch (IOException e) {
-			e.printStackTrace();
+		 } catch (Exception e) {
+			log.info(e.toString());
 		 }
 		return defaultProps;
 	 }
@@ -77,7 +70,7 @@ import org.uncommons.reportng.*;
 		if(driver!=null)
 		{
 			try {
-				driver.quit();
+				driver.close();
 			}catch(WebDriverException e)
 			{
 				log.info("**********CAUGHT EXCEPTION IN DRIVER TEAR DOWN**********");

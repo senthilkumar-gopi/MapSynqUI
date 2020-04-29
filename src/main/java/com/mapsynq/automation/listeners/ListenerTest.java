@@ -2,7 +2,6 @@ package com.mapsynq.automation.listeners;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.apache.commons.io.FileUtils;
@@ -23,17 +22,15 @@ import com.mapsynq.automation.helper.TestBase;
 public class ListenerTest implements ISuiteListener, ITestListener, IInvokedMethodListener {
 	
     private static Logger log = Logger.getLogger(ListenerTest.class);
-    public String suitename;
 
 	@Override
 	public void afterInvocation(IInvokedMethod arg0, ITestResult arg1) {
-		// TODO Auto-generated method stub
-		
+		// Do nothing
 	}
 
 	@Override
 	public void beforeInvocation(IInvokedMethod arg0, ITestResult arg1) {
-		// TODO Auto-generated method stub
+		// Do nothing
 	}
 
 	@Override
@@ -43,25 +40,22 @@ public class ListenerTest implements ISuiteListener, ITestListener, IInvokedMeth
 
 	@Override
 	public void onStart(ISuite arg0) {
-		suitename = arg0.getName();
 		log.info(arg0.getName() + "---Test Suite starting---\n");		
 	}
 
 	@Override
 	public void onFinish(ITestContext arg0) {
-		// TODO Auto-generated method stub
+		// Do nothing
 	}
 
 	@Override
 	public void onStart(ITestContext arg0) {
-		// TODO Auto-generated method stub
-		
+		// Do nothing
 	}
 
 	@Override
-	public void onTestFailedButWithinSuccessPercentage(ITestResult arg0) {
-		// TODO Auto-generated method stub
-		
+	public void onTestFailedButWithinSuccessPercentage(ITestResult arg0) {	
+		// Do nothing
 	}
 
 	@Override
@@ -69,14 +63,12 @@ public class ListenerTest implements ISuiteListener, ITestListener, IInvokedMeth
 		log.info(tr.getName() + "---Test method failed---\n");
     	try {
 			takeScreenShot(tr);
-		} catch (MalformedURLException e) {
-			log.info(e.toString());
 		} catch (Exception e) {
 			log.info(e.toString());
 		}	      
 	}
 
-	public void takeScreenShot(ITestResult result) throws MalformedURLException, Exception {
+	public void takeScreenShot(ITestResult result) {
 		Object currentclass=result.getMethod().getInstance();
     	WebDriver driver=((TestBase) currentclass).getDriver();
 		String status="failed";
@@ -84,7 +76,7 @@ public class ListenerTest implements ISuiteListener, ITestListener, IInvokedMeth
 		{
 			status="passed";
 		}
-		String methodName = result.getName().toString().trim();
+		String methodName = result.getName().trim();
 		File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 
 		try {
@@ -109,7 +101,7 @@ public class ListenerTest implements ISuiteListener, ITestListener, IInvokedMeth
 
 	@Override
 	public void onTestSkipped(ITestResult tr) {
-		log.info(tr.getName() + "---Test method blocked---\n");	
+		// Do nothing
 	}
 
 	@Override
@@ -122,8 +114,6 @@ public class ListenerTest implements ISuiteListener, ITestListener, IInvokedMeth
 		log.info(tr.getName() + "---Test method passed---\n");
     	try {
 			takeScreenShot(tr);
-		} catch (MalformedURLException e) {
-			log.info(e.toString());
 		} catch (Exception e) {
 			log.info(e.toString());
 		}

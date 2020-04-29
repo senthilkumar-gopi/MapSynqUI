@@ -127,7 +127,7 @@ public class HomePage extends UtilClass{
 		return new LeftTabLiveTollsPage(driver);
 	}
 
-	public TrafficPage clickParkingFromControlPanel() throws InterruptedException {
+	public TrafficPage clickParkingFromControlPanel() {
 		prerequisite();
 		log.info("Clicking Parking Option from Control Panel Area");
 		clickElement(driver, btnParking);
@@ -136,7 +136,7 @@ public class HomePage extends UtilClass{
 		return new TrafficPage(driver);
 	}
 
-	public CamerasPage clickCamerasFromControlPanel() throws InterruptedException {
+	public CamerasPage clickCamerasFromControlPanel() {
 		prerequisite();
 		log.info("Clicking Cameras Option from Control Panel Area");
 		clickElement(driver, btnCameras);
@@ -145,7 +145,7 @@ public class HomePage extends UtilClass{
 		return new CamerasPage(driver);
 	}
 
-	public TollPage clickTollFromControlPanel() throws InterruptedException {
+	public TollPage clickTollFromControlPanel() {
 		prerequisite();
 		log.info("Clicking Toll Option from Control Panel Area");
 		clickElement(driver, btnToll);
@@ -154,7 +154,7 @@ public class HomePage extends UtilClass{
 		return new TollPage(driver);
 	}
 
-	public IncidentsPage clickIncidentsFromControlPanel() throws InterruptedException {
+	public IncidentsPage clickIncidentsFromControlPanel() {
 		prerequisite();
 		log.info("Clicking Incidents Option from Control Panel Area");
 		clickElement(driver, btnIncidents);

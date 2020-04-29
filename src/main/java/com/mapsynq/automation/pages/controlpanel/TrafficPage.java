@@ -40,7 +40,7 @@ public class TrafficPage extends UtilClass{
 		wait.until(ExpectedConditions.visibilityOf(parkingLogo));
 	}
 
-	public TrafficPage clickFirstParkingLogo() throws InterruptedException {
+	public TrafficPage clickFirstParkingLogo() {
 		log.info("Clicking First Occurrence of Parking Logo Symbol");
 		clickElement(driver, parkingLogo);
 		log.info("Clicked First Parking Logo Symbol");

@@ -42,7 +42,7 @@ public class CamerasPage extends UtilClass{
 		wait.until(ExpectedConditions.visibilityOf(camerasLogo));
 	}
 
-	public CamerasPage clickFirstCamerasLogo() throws InterruptedException {
+	public CamerasPage clickFirstCamerasLogo() {
 		log.info("Clicking (+) in Zoom Bar Button for Zoom Inside Map Area");
 		waitForSeconds(5);
 		log.info("Clicking First Occurrence of Cameras Logo Symbol");
