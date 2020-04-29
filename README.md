@@ -38,6 +38,24 @@ pom.xml - contains dependencies,plugins,etc
 ===========
 Executions:
 ===========
+Change the src/main/resources/configfile/config.properties
+======
+Local
+======
+mode = local
+browser = chrome
+os = Windows
+headless = no
+
+==========
+Saucelabs
+=========
+mode = saucelabs
+browser = chrome
+os = Windows 10
+version=latest
+
+
 =======
 TestNG
 =======
