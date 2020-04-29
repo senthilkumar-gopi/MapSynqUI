@@ -23,7 +23,7 @@ public class LiveCamerasTest extends TestBase {
 	}
 
 	@Test
-	public void verifyLiveCalerasSearchResult() throws Exception {
+	public void verifyLiveCamerasSearchResult() throws Exception {
 		leftTabLiveCamerasPage = homePage.closeAdvPopUp().clickLeftTabLive().clickLeftTabLiveCameras()
 						         .selectFirstLocationLink();
 		assertTrue("Problem in Getting Live Cameras Info", leftTabLiveCamerasPage.verifyTrafficCamerasPopUp());

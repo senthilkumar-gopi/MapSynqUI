@@ -23,7 +23,7 @@ public class LiveTollsTest extends TestBase {
 	}
 
 	@Test
-	public void verifyLiveTollSearchResult() throws Exception {
+	public void verifyLiveTolls() throws Exception {
 		leftTabLiveTollsPage = homePage.closeAdvPopUp().clickLeftTabLive().clickLeftTabLiveTolls()
 						         .selectFirstLocationLink();
 		assertTrue("Problem in Getting Live Toll Info", leftTabLiveTollsPage.verifyTollPopUp());

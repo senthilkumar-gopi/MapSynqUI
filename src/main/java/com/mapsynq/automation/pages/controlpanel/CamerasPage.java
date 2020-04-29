@@ -43,8 +43,6 @@ public class CamerasPage extends UtilClass{
 	}
 
 	public CamerasPage clickFirstCamerasLogo() {
-		log.info("Clicking (+) in Zoom Bar Button for Zoom Inside Map Area");
-		waitForSeconds(5);
 		log.info("Clicking First Occurrence of Cameras Logo Symbol");
 		clickElement(driver, camerasLogo);
 		log.info("Clicked First Cameras Logo Symbol");

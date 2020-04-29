@@ -69,6 +69,9 @@ public class HomePage extends UtilClass{
 
 	@FindBy(xpath = "(//div[@title='Toll'])[2]")
     private WebElement btnToll;
+	
+	@FindBy(xpath = "//div[@id='div_header']/a")
+    private WebElement imgHome;
 
 
 	public HomePage(WebDriver driver) {
@@ -192,7 +195,7 @@ public class HomePage extends UtilClass{
 			log.info("Check for Adv. Pop-Up & Close if found");
 			wait.until(ExpectedConditions.visibilityOf(btnAdvToggleCollapse));
 			wait.until(ExpectedConditions.elementToBeClickable(btnAdvToggleCollapse));
-			waitForSeconds(3);
+			waitForSeconds(2);
 			clickElement(driver, btnAdvToggleCollapse);
 			log.info("Closed Pop-up");
 		}catch(ElementNotVisibleException e) {
@@ -201,6 +204,13 @@ public class HomePage extends UtilClass{
 		    log.info(e.toString());
 		}
 		waitForElementToAppear(driver, btnAdvToggleExpand);
+		
+		return this;
+	}
+	
+	public HomePage clickHomeIcon() {
+		imgHome.click();
+		log.info("Clicked on Home Image Icon");
 		
 		return this;
 	}

@@ -70,7 +70,7 @@ import org.uncommons.reportng.*;
 		if(driver!=null)
 		{
 			try {
-				driver.close();
+				driver.quit();
 			}catch(WebDriverException e)
 			{
 				log.info("**********CAUGHT EXCEPTION IN DRIVER TEAR DOWN**********");

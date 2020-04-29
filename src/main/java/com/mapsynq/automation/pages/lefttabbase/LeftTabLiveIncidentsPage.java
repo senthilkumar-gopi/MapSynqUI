@@ -1,5 +1,7 @@
 package com.mapsynq.automation.pages.lefttabbase;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -32,6 +34,13 @@ public class LeftTabLiveIncidentsPage extends UtilClass{
 
 	@FindBy(id = "popup_contentDiv")
     private WebElement lblTextInfo;
+	
+	@FindBy(xpath = "//ul/li/a")
+	private List<WebElement> listSearchResults;
+	
+	@FindBy(xpath = "//div[@id='incidentsingapore']/div[contains(@class,'no_result')]")
+    private WebElement txtNoSearch;
+	
 
 
 	public LeftTabLiveIncidentsPage(WebDriver driver) {
@@ -60,5 +69,27 @@ public class LeftTabLiveIncidentsPage extends UtilClass{
 		return getTextInsidePopUp.contains(getTextFromFirstIncidentList) && 
 			(getTextForPopUpHeader[0].toUpperCase().trim().contains(popupTitleHeader.toUpperCase().trim()));
 	}
+	
+	public LeftTabLiveIncidentsPage setSearchText(String search) {
+		setText(driver, txtSearchLocation, search);
+		log.info("Entered Search text field as " + search);
+		waitForSeconds(2);
 
+		return this;
+	}
+	
+	public boolean verifySearchResults(String search) {
+		if(listSearchResults.size()>0) {
+			for(WebElement element : listSearchResults) {
+				if(element.getText().toLowerCase().contains(search.toLowerCase())) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	
+	public String getMessage() {
+		return txtNoSearch.getText().trim();
+	}
 }

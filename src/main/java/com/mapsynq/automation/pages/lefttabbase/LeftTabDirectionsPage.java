@@ -40,10 +40,10 @@ public class LeftTabDirectionsPage extends UtilClass{
 
 	public LeftTabDirectionsPage(WebDriver driver) {
 		log.info("Home Page constructor is Invoked");
-			this.driver = driver;
-			wait = new WebDriverWait(driver, 20);
-			PageFactory.initElements(driver, this);
-			wait.until(ExpectedConditions.visibilityOf(txtSourceSearch));
+		this.driver = driver;
+		wait = new WebDriverWait(driver, 20);
+		PageFactory.initElements(driver, this);
+		wait.until(ExpectedConditions.visibilityOf(txtSourceSearch));
 	}
 
 	public LeftTabDirectionsPage setSourcePlace(String firstName) {
@@ -93,8 +93,7 @@ public class LeftTabDirectionsPage extends UtilClass{
 	}
 
 	public boolean verifySearchResult() {
-		waitForSeconds(5);
-
+        wait.until(ExpectedConditions.alertIsPresent());
         Alert alert = driver.switchTo().alert();
         String getAlertText = alert.getText();
         alert.accept();
